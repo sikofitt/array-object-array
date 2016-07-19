@@ -1,0 +1,30 @@
+{
+    "name": "sikofitt/array-object-array",
+    "description": "ArrayObject class that implements array functions through __call",
+    "type": "library",
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.4",
+        "friendsofphp/php-cs-fixer": "^1.11"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sikofitt",
+            "email": "sikofitt@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sikofitt\\Utility\\": "src/Sikofitt/Utility/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sikofitt\\Tests\\": "tests/Sikofitt/Tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
