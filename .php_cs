@@ -16,7 +16,7 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
   ->ignoreDotFiles(true)
   ->ignoreVCS(true)
   ->name('*.php')
-  ->in(__DIR__ . '/src')
+  ->in(__DIR__)
   ;
 
 return Symfony\CS\Config\Config::create()
