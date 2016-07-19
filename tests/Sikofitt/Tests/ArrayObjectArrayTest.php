@@ -3,15 +3,7 @@
 /*
  * This file is part of ArrayObjectArray.
  *
-<<<<<<< HEAD
  * (copyleft) R. Eric Wheeler <sikofitt@gmail.com>
-=======
- * @file ArrayObjectArrayTest.php
- *
- * R. Eric Wheeler <sikofitt@gmail.com>
- *
- * 7/19/16 / 1:58 PM
->>>>>>> refs/remotes/origin/master
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
