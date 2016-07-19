@@ -4,7 +4,7 @@
  *
  * @file ArrayObjectArrayTest.php
  *
- * R. Eric Wheeler <reric@ee.stanford.edu>
+ * R. Eric Wheeler <sikofitt@gmail.com>
  *
  * 7/19/16 / 1:58 PM
  *
