@@ -269,6 +269,13 @@ class ArrayObjectArrayTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array_filter($this->workingMultiArray), $this->arrayObjectArrayMulti->array_filter());
         $this->assertSame(array_filter($this->workingMultiArray, $array_filter), $this->arrayObjectArrayMulti->array_filter($array_filter));
         // The third parameter was added in php 5.6
+        if(!defined('ARRAY_FILTER_USE_BOTH')) {
+            define('ARRAY_FILTER_USE_BOTH', 1);
+        }
+        if(!defined('ARRAY_FILTER_USE_KEY')) {
+            define('ARRAY_FILTER_USE_KEY', 2);
+        }
+
         if (PHP_VERSION_ID >= 50600) {
             $this->assertSame(array_filter($this->workingMultiArray, $array_filter, ARRAY_FILTER_USE_BOTH), $this->arrayObjectArrayMulti->array_filter($array_filter, ARRAY_FILTER_USE_BOTH));
             $this->assertSame(array_filter($this->workingMultiArray, $array_filter, ARRAY_FILTER_USE_KEY), $this->arrayObjectArrayMulti->array_filter($array_filter, ARRAY_FILTER_USE_KEY));
