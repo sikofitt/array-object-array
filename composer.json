@@ -6,8 +6,8 @@
         "php": ">=5.3.29"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.4",
-        "phpunit/php-code-coverage": "^4.0"
+        "phpunit/phpunit": "*",
+        "phpunit/php-code-coverage": "*"
     },
     "license": "MIT",
     "authors": [
