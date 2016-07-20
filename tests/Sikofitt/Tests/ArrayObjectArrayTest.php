@@ -276,7 +276,7 @@ class ArrayObjectArrayTest extends \PHPUnit_Framework_TestCase
             define('ARRAY_FILTER_USE_KEY', 2);
         }
 
-        if (PHP_VERSION_ID >= 50600) {
+        if (PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION')) {
             $this->assertSame(array_filter($this->workingMultiArray, $array_filter, ARRAY_FILTER_USE_BOTH), $this->arrayObjectArrayMulti->array_filter($array_filter, ARRAY_FILTER_USE_BOTH));
             $this->assertSame(array_filter($this->workingMultiArray, $array_filter, ARRAY_FILTER_USE_KEY), $this->arrayObjectArrayMulti->array_filter($array_filter, ARRAY_FILTER_USE_KEY));
         }
