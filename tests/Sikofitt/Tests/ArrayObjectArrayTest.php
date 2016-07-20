@@ -243,8 +243,10 @@ class ArrayObjectArrayTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array_chunk($this->workingArray, 2), $this->arrayObjectArray->array_chunk(2));
         $this->assertSame(array_chunk($this->workingArray, 2, true), $this->arrayObjectArray->array_chunk(2, true));
         // array_column
-        // $this->assertSame(array_column($this->workingMultiArray, 'first_name'), $this->arrayObjectArrayMulti->array_column('first_name'));
-        // $this->assertSame(array_column($this->workingMultiArray, 'first_name', 'id'), $this->arrayObjectArrayMulti->array_column('first_name', 'id'));
+        if (PHP_VERSION_ID >= 50500) {
+            $this->assertSame(array_column($this->workingMultiArray, 'first_name'), $this->arrayObjectArrayMulti->array_column('first_name'));
+            $this->assertSame(array_column($this->workingMultiArray, 'first_name', 'id'), $this->arrayObjectArrayMulti->array_column('first_name', 'id'));
+        }
         // array_combine
         $this->assertSame(array_combine($this->singleArrayOne, $this->singleArrayTwo), $this->arrayObjectSingle->array_combine($this->singleArrayTwo));
         // array_count_values
