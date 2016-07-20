@@ -3,7 +3,10 @@
     "description": "ArrayObject class that implements array functions through __call",
     "type": "library",
     "require": {
-        "php": ">=5.3.29"
+        "php": ">=5.3.29",
+        "symfony/polyfill-php54": "^1.2",
+        "symfony/polyfill-php55": "^1.2",
+        "symfony/polyfill-php56": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
