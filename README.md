@@ -23,9 +23,6 @@ $arrObj->array_map(
     }
 );
 ```
-array_map(function($value) { 
-print sprintf("%s\n", $value); }, $arr));
-use the normal `\ArrayObject` methods
 ```php
 $arrObj->exchangeArray($myNewArray);
 ```
