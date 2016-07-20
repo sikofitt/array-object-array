@@ -17,8 +17,14 @@ then use it with any array_* function.
 ```php
 $arrObj->array_keys();
 $arrObj->array_values();
-$arrObj->array_map(function($arr) { return array_keys($arr); });
+$arrObj->array_map(
+    function($value) { 
+        print sprintf("%s\n", $value); 
+    }
+);
 ```
+array_map(function($value) { 
+print sprintf("%s\n", $value); }, $arr));
 use the normal `\ArrayObject` methods
 ```php
 $arrObj->exchangeArray($myNewArray);
@@ -28,3 +34,4 @@ MIT
 
 ## Todo
 Finish writing the rest of the tests for array_* functions
+
