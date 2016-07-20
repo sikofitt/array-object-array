@@ -6,6 +6,7 @@ php:
   - '7.0'
   - hhvm
   - nightly
-install:
+before_script:
   - composer install --dev
-  
+
+script: phpunit --coverage-text
