@@ -15,4 +15,9 @@ matrix:
 before_script:
   - composer install --dev
 
-script: phpunit --coverage-text
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml.dist
+
+after_success:
+  - travis_retry php vendor/bin/coveralls -v

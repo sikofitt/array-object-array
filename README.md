@@ -1,4 +1,5 @@
-# ArrayObjectArray [![Build Status](https://travis-ci.org/sikofitt/array-object-array.svg?branch=master)](https://travis-ci.org/sikofitt/array-object-array)
+# ArrayObjectArray [![Build Status](https://travis-ci.org/sikofitt/array-object-array.svg?branch=master)](https://travis-ci.org/sikofitt/array-object-array) [![Coverage Status](https://coveralls.io/repos/github/sikofitt/array-object-array/badge.svg?branch=master)](https://coveralls.io/github/sikofitt/array-object-array?branch=master)
+
 
 This is an incredibly simple class extension of `\ArrayObject` to provide
 array functions use the magic `__call` method.  I no longer like writing this

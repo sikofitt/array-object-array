@@ -1,22 +1,26 @@
 {
     "name": "sikofitt/array-object-array",
     "description": "ArrayObject class that implements array functions through __call",
+    "keywords": ["array", "object", "php", "magic", "call"],
     "type": "library",
     "require": {
-        "php": ">=5.3.29",
+        "php": ">=5.3",
         "symfony/polyfill-php54": "^1.2",
         "symfony/polyfill-php55": "^1.2",
         "symfony/polyfill-php56": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "phpunit/php-code-coverage": "*"
+        "phpunit/phpunit": "~4.8",
+        "phpunit/php-code-coverage": "~2.2",
+        "satooshi/php-coveralls": "^1.0"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "sikofitt",
-            "email": "sikofitt@gmail.com"
+            "email": "sikofitt@gmail.com",
+            "homepage": "http://rewiv.com",
+            "role": "developer"
         }
     ],
     "autoload": {
