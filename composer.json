@@ -33,5 +33,10 @@
             "Sikofitt\\Tests\\": "tests/Sikofitt/Tests/"
         }
     },
+    "extra":{
+        "branch-alias": {
+            "dev-master": "0.1"
+        }
+    },
     "minimum-stability": "stable"
 }
