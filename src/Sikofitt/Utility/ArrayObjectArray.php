@@ -46,10 +46,18 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
         $iterator_class = 'ArrayIterator'
     ) {
         // SORT_FLAG_CASE and SORT_NATURAL were introduced in php 5.4
-        if (!defined('SORT_FLAG_CASE')) { define('SORT_FLAG_CASE', 8); } elseif(!defined('SORT_NATURAL')) { define('SORT_NATURAL', 6); }
+        if (!defined('SORT_FLAG_CASE')) {
+            define('SORT_FLAG_CASE', 8);
+        } elseif (!defined('SORT_NATURAL')) {
+            define('SORT_NATURAL', 6);
+        }
         // ARRAY_FILTER_USE_* flags were added in php 5.6
         // along with a 3rd parameter to use them.
-        if (!defined('ARRAY_FILTER_USE_BOTH')) { define('ARRAY_FILTER_USE_BOTH', 1); } elseif (!defined('ARRAY_FILTER_USE_KEY')) { define('ARRAY_FILTER_USE_KEY', 2); }
+        if (!defined('ARRAY_FILTER_USE_BOTH')) {
+            define('ARRAY_FILTER_USE_BOTH', 1);
+        } elseif (!defined('ARRAY_FILTER_USE_KEY')) {
+            define('ARRAY_FILTER_USE_KEY', 2);
+        }
         parent::__construct($input, $flags, $iterator_class);
         $this->iterator = $this->getIterator();
     }
@@ -130,7 +138,7 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
     {
         static $arrayCopy;
 
-        if(!$arrayCopy) {
+        if (!$arrayCopy) {
             $arrayCopy = $this->getArrayCopy();
         }
         return each($arrayCopy);
@@ -171,11 +179,11 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
                 $callback = $argv[0];
                 array_shift($argv);
 
-                return call_user_func_array('array_map', array_merge(array($callback), array($this->getArrayCopy()), $argv));
+                return call_user_func_array('array_map', array_merge([$callback], [$this->getArrayCopy()], $argv));
             default:
                 return call_user_func_array(
                     $function,
-                    array_merge(array($this->getArrayCopy()), $argv)
+                    array_merge([$this->getArrayCopy()], $argv)
                 );
                 break;
         }
@@ -237,14 +245,12 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
     public function rsort($sort_flags = null)
     {
         $arrayCopy = $this->getArrayCopy();
-        if(@\rsort($arrayCopy, $sort_flags))
-        {
+        if (@\rsort($arrayCopy, $sort_flags)) {
             $this->exchangeArray($arrayCopy);
             return true;
         } else {
             return false;
         }
-
     }
 
     /**
@@ -255,25 +261,21 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
     public function sort($sort_flags = null)
     {
         $arrayCopy = $this->getArrayCopy();
-        if(@\sort($arrayCopy, $sort_flags))
-        {
+        if (@\sort($arrayCopy, $sort_flags)) {
             $this->exchangeArray($arrayCopy);
             return true;
         } else {
             return false;
         }
-
     }
 
     public function usort($callback)
     {
-        if(!is_callable($callback))
-        {
+        if (!is_callable($callback)) {
             throw new \BadFunctionCallException($callback);
         }
         $arrayCopy = $this->getArrayCopy();
-        if(true === $returnVal = @\usort($arrayCopy, $callback))
-        {
+        if (true === $returnVal = @\usort($arrayCopy, $callback)) {
             $this->exchangeArray($arrayCopy);
         }
         return $returnVal;
