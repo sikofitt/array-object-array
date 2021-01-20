@@ -19,17 +19,10 @@ namespace Sikofitt\Utility;
  *
  * @package Sikofitt\Utility
  */
-use Guzzle\Common\Exception\BadMethodCallException;
-
-/**
- * Class ArrayObjectArray
- *
- * @package Sikofitt\Utility
- */
 class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
 {
     /**
-     * @var \ArrayIterator
+     * @var \Iterator
      */
     private $iterator;
 
@@ -72,11 +65,14 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
     }
 
     /**
+     * Alias of current
      *
+     * @return int
+     *   Current position of the array
      */
     public function pos()
     {
-        return pos($this->iterator);
+        return $this->current();
     }
 
     /**
@@ -175,11 +171,19 @@ class ArrayObjectArray extends \ArrayObject implements \IteratorAggregate
                     $argv[0],
                     $this->getArrayCopy()
                 );
+                break;
             case 'array_map':
                 $callback = $argv[0];
                 array_shift($argv);
-
                 return call_user_func_array('array_map', array_merge(array($callback), array($this->getArrayCopy()), $argv));
+                break;
+            case 'array_pop':
+                    $arrayCopy = $this->getArrayCopy();
+                    if (null !== $returnValue = array_pop($arrayCopy)) {
+                        $this->exchangeArray($arrayCopy);
+                    }
+                    return $returnValue;
+                break;
             default:
                 return call_user_func_array(
                     $function,
